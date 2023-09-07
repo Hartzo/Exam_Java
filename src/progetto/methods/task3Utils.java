@@ -15,23 +15,22 @@ public class task3Utils {
 
         //Let's start initializing the result with false, assuming there aren't missing airports
         boolean result = false;
-        //We start iterating each list in a nested loop of course
+        //THIS METHOD HAS BEEN CORRECTED USING HASHSET IS SIMPLER
+        Set<String> differentAirport = new HashSet<>();
+        Set<String> airportInFlight = new HashSet<>();
+        //We start adding airport codes as values in each hashset
         for (Airport a : airports_List) {
-            boolean found = false; //this guard is useful to find a missing airport
-            for (Flight f : newFlight_List) {
-                boolean arrival = f.getArrivalAirport().equals(a.getAirport_code());
-                boolean departure = f.getDepartureAirport().equals(a.getAirport_code());
-                //now we are comparing the airport code with the airport of the new flights
-                if (arrival || departure || !(arrival && departure) ) {
-                    found = true;
-                    break;	//exiting the loop if we find an airport in the list - the result remains false
-                }
-            }
-            if(!found) { //we enter this condition only if we don't find the airport
-                result = true; //therefore we confirm there are missing airports
-                break;
-            }
+            differentAirport.add(a.getAirport_code());
         }
+        for (Flight f : newFlight_List) {
+            airportInFlight.add(f.getArrivalAirport());
+            airportInFlight.add(f.getDepartureAirport());
+        }
+        //with this we can see if the first hashset contains all of the airport codes of the new flight 
+        if(!differentAirport.containsAll(airportInFlight)) {
+            result = true;
+        }
+
         return result;
     }
 
