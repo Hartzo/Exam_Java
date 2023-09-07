@@ -15,7 +15,7 @@ public class task3Utils {
 
         //Let's start initializing the result with false, assuming there aren't missing airports
         boolean result = false;
-        //THIS METHOD HAS BEEN CORRECTED USING HASHSET IS SIMPLER
+        //THIS METHOD HAS BEEN CORRECTED! USING HASHSET IS SIMPLER
         Set<String> differentAirport = new HashSet<>();
         Set<String> airportInFlight = new HashSet<>();
         //We start adding airport codes as values in each hashset
