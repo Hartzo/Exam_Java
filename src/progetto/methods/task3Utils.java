@@ -4,6 +4,8 @@ import progetto.model.Airport;
 import progetto.model.Flight;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import hava.util.Set;
 
 //This Class contains all the methods that are needed in the Task3 Class
 //In this way the program is well written , more modular and easy to maintain
