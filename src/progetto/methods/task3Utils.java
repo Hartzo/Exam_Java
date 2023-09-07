@@ -17,18 +17,20 @@ public class task3Utils {
 
         //Let's start initializing the result with false, assuming there aren't missing airports
         boolean result = false;
-        //THIS METHOD HAS BEEN CORRECTED! USING HASHSET IS SIMPLER
+        //THIS METHOD HAS BEEN CORRECTED USING HASHSET IS SIMPLER
         Set<String> differentAirport = new HashSet<>();
         Set<String> airportInFlight = new HashSet<>();
         //We start adding airport codes as values in each hashset
         for (Airport a : airports_List) {
             differentAirport.add(a.getAirport_code());
         }
+        //Add all arrival and departure airport codes from newFlight_List to airportInFlight set.
         for (Flight f : newFlight_List) {
             airportInFlight.add(f.getArrivalAirport());
             airportInFlight.add(f.getDepartureAirport());
         }
-        //with this we can see if the first hashset contains all of the airport codes of the new flight 
+        //Check if any airport in airportInFlight is not present in differentAirport.
+        //If not all airports are present, it means there's at least one missing airport.
         if(!differentAirport.containsAll(airportInFlight)) {
             result = true;
         }
