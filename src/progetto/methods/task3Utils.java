@@ -19,8 +19,10 @@ public class task3Utils {
         for (Airport a : airports_List) {
             boolean found = false; //this guard is useful to find a missing airport
             for (Flight f : newFlight_List) {
+                boolean arrival = f.getArrivalAirport().equals(a.getAirport_code());
+                boolean departure = f.getDepartureAirport().equals(a.getAirport_code());
                 //now we are comparing the airport code with the airport of the new flights
-                if (f.getArrivalAirport().equals(a.getAirport_code()) || f.getDepartureAirport().equals(a.getAirport_code())) {
+                if (arrival || departure || !(arrival && departure) ) {
                     found = true;
                     break;	//exiting the loop if we find an airport in the list - the result remains false
                 }
@@ -66,7 +68,7 @@ public class task3Utils {
         //Second condition for a bridge flight
         boolean condition2 = Vx.getArrivalAirport().equals(Vb.getDepartureAirport());
         // Third condition, next day of Va is the day of Vx and the previous day of Vb is the day of Vx
-        boolean condition3 = (Vx.getDay() == Va.getDay() + 1) && (Va.getDay() == Vb.getDay() - 1);
+        boolean condition3 = (Vx.getDay() == Va.getDay() + 1) && (Vx.getDay() == Vb.getDay() - 1);
         //Fourth condition , we compare if the aircraft is the same for our three flights
         boolean condition4 = Vx.getAircraft().getAircraft_code().equals(Va.getAircraft().getAircraft_code())
                 && Va.getAircraft().getAircraft_code().equals(Vb.getAircraft().getAircraft_code());
