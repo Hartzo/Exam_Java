@@ -1,0 +1,20 @@
+2 3 5
+A1 100 8500 10
+A2 80 2350 2
+LAX,Stati Uniti d'America,5
+SUF,Germania,3
+BER,Germania,4
+A1 91 LAX SUF 3
+A2 45 SUF LAX 188
+A2 10 BER LAX 100
+A2 23 BER SUF 84
+A1 5 LAX BER 2
+TASK2 1 2
+
+
+
+1 aircraft 1 flights
+
+1 flight con stesso aircraft a distanza di 2 giorni
+
+1 min 2 max airports in overboard
